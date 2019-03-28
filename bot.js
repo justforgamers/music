@@ -281,11 +281,11 @@ client.on('message', message => { // Toxic Codes
     if (command === "kill"){ // Toxic Codes
 
    var sabotage = message.mentions.users.first();
-   if(sabotage == message.author)return message.reply(`**الانتحار مو زين و الله**`);// Toxic Codes
-    if(sabotage === client.user) return message.reply(`** تبي تقتلني ؟ **`);
+   if(sabotage == message.author)return message.reply(`** suicide is not good **`);// Toxic Codes
+    if(sabotage === client.user) return message.reply(`** you want to kill me ? **`);
   if (sabotage < 1) {
     message.delete();
-    return message.channel.sendMessage('ضع شيئا للقتل، مثل ذكر مستخدم، أو استخدام رمز تعبيري');// Toxic Codes
+    return message.channel.sendMessage('put something to kill، like mentioning a user، or use an emoji');// Toxic Codes
   }
   if (!sabotage) return message.channel.send(`Please Mention A Member to Kill :warning:`)// Toxic Codes
   message.channel.send("▄︻̷̿┻̿═━一 ${sabotage")// Toxic Codes
