@@ -309,7 +309,7 @@ client.on('message', message => { // Toxic Codes
   msg.delete(6000)
   message.delete()// Toxic Codes
   })
-  message.channel.send("**تم اخفاء الجريمة بنجاح 🕳 **").then(msg => msg.delete(10000));// Toxic Codes
+  message.channel.send("**hided the crime successfully 🕳 **").then(msg => msg.delete(10000));// Toxic Codes
     }
 });// Toxic Codes
 
