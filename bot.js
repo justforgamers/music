@@ -183,8 +183,8 @@ client.on("message", message => { //clear
 
 
 
-if(message.content.startsWith(prefix + "ping")) {
- message.channel.send('Pong...').then((msg) => {
+if(message.content.startsWith(prefix + "ping") {
+ message.channel.send('Pong...').then(msg) => {
       msg.edit(`\`\`\`javascript\nTime taken: ${msg.createdTimestamp - message.createdTimestamp} ms.\nDiscord API: ${Math.round(client.ping)} ms.\`\`\``);//حقوق دايموند كودز
  });
     
