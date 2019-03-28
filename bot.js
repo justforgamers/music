@@ -189,7 +189,7 @@ client.on("message", message => { //clear
 const yourID = "507537060584882205"; //GEKYYUME
 const setupCMD = "-createreact" //هنا البرفكس والكلمه اللي تكتبها علشان يعمل الرساله
 let initialMessage = `دوس علي الايموجي علشان تاخد الرتبه`;
-const roles = ["Active", "gekyume", "toxic", "help"];
+const roles = ["vip", "gekyume", "toxic", "help"];
 const reactions = ["✅", "🕵", "💡", "🔖"];
 
 
