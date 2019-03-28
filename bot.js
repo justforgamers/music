@@ -238,7 +238,7 @@ let embed = new Discord.RichEmbed()
 message.channel.send({embed});
 
 }
-
+}
 });
 
 
