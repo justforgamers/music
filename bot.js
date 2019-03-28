@@ -316,4 +316,145 @@ client.on('message', message => { // Toxic Codes
 
 
 
+client.on('message' , message => {
+  
+  if(message.author.bot) return;
+ 
+  if(message.content.startsWith(prefix + "xo")) {
+ let array_of_mentions = message.mentions.users.array();
+  let symbols = [':o:', ':heavy_multiplication_x:']
+  var grid_message;
+ 
+  if (array_of_mentions.length == 1 || array_of_mentions.length == 2) {
+    let random1 = Math.floor(Math.random() * (1 - 0 + 1)) + 0;
+    let random2 = Math.abs(random1 - 1);
+    if (array_of_mentions.length == 1) {
+      random1 = 0;
+      random2 = 0;
+    }
+    var player1_id = message.author.id
+    let player2_id = array_of_mentions[random2].id;
+    var turn_id = player1_id;
+    var symbol = symbols[0];
+    let initial_message = `Game match between <@${player1_id}> and <@${player2_id}>!`;
+    if (player1_id == player2_id) {
+      initial_message += '\n_( ألعب مع نفسك)_'
+    }
+    message.channel.send(`Xo ${initial_message}`)
+    .then(console.log("Successful tictactoe introduction"))
+    .catch(console.error);
+    message.channel.send(':one::two::three:' + '\n' +
+                         ':four::five::six:' + '\n' +
+                         ':seven::eight::nine:')
+    .then((new_message) => {
+      grid_message = new_message;
+    })
+    .then(console.log("Successful tictactoe game initialization"))
+    .catch(console.error);
+    message.channel.send('يجب الانتضار حيث ما يتم الموافقه')
+    .then(async (new_message) => {
+      await new_message.react('1⃣');
+      await new_message.react('2⃣');
+      await new_message.react('3⃣');
+      await new_message.react('4⃣');
+      await new_message.react('5⃣');
+      await new_message.react('6⃣');
+      await new_message.react('7⃣');
+      await new_message.react('8⃣');
+      await new_message.react('9⃣');
+      await new_message.react('🆗');
+      await new_message.edit(`It\'s <@${turn_id}>\'s turn! Your symbol is ${symbol}`)
+     .then((new_new_message) => {
+       require('./xo.js')(client, message, new_new_message, player1_id, player2_id, turn_id, symbol, symbols, grid_message);
+     })
+     .then(console.log("Successful tictactoe listener initialization"))
+     .catch(console.error);
+   })
+   .then(console.log("Successful tictactoe react initialization"))
+   .catch(console.error);
+ }
+ else {
+   message.reply(`منشن مع من تريد ألعب`)
+   .then(console.log("Successful error reply"))
+   .catch(console.error);
+ }
+}
+});
+
+
+
+client.on('message', message => {
+  
+var args = message.content.split(" ").slice(1);    
+if(message.content.startsWith(prefix + 'id')) {
+var year = message.author.createdAt.getFullYear()
+var month = message.author.createdAt.getMonth()
+var day = message.author.createdAt.getDate()
+var men = message.mentions.users.first();  
+let args = message.content.split(' ').slice(1).join(' ');
+if (args == '') {
+var z = message.author;
+}else {
+var z = message.mentions.users.first();
+}
+ 
+let d = z.createdAt;          
+let n = d.toLocaleString();  
+let x;                      
+let y;                        
+ 
+if (z.presence.game !== null) {
+y = `${z.presence.game.name}`;
+} else {
+y = "No Playing... |💤.";
+}
+if (z.bot) {
+var w = 'بوت';
+}else {
+var w = 'عضو';
+}
+let embed = new Discord.RichEmbed()
+.setColor("#502faf")
+.addField('🔱| اسمك:',`**<@` + `${z.id}` + `>**`, true)
+.addField('🛡| ايدي:', "**"+ `${z.id}` +"**",true)
+.addField('♨| Playing:','**'+y+'**' , true)
+.addField('🤖| نوع حسابك:',"**"+ w + "**",true)    
+.addField('📛| الكود حق حسابك:',"**#" +  `${z.discriminator}**`,true)
+.addField('**التاريح الذي انشئ فيه حسابك | 📆 **: ' ,year + "-"+ month +"-"+ day)    
+.addField("**تاريخ دخولك للسيرفر| ⌚   :**", message.member.joinedAt.toLocaleString())    
+ 
+.addField('**⌚ | تاريخ انشاء حسابك الكامل:**', message.author.createdAt.toLocaleString())
+.addField("**اخر رسالة لك | 💬  :**", message.author.lastMessage)            
+ 
+.setThumbnail(`${z.avatarURL}`)
+.setFooter(message.author.username, message.author.avatarURL)
+ 
+message.channel.send({embed});
+  if (!message) return message.reply('**ضع المينشان بشكل صحيح  ❌ **').catch(console.error);
+ 
+}
+ 
+});
+
+
+
+
+
+client.on('message' , message => {
+  
+  if(message.author.bot) return;
+  if(message.content.startsWith(prefix + "ping")) {
+ message.channel.send('Pong...').then((msg) => {
+      msg.edit(`\`\`\`javascript\nTime taken: ${msg.createdTimestamp - message.createdTimestamp} ms.\nDiscord API: ${Math.round(client.ping)} ms.\`\`\``);//حقوق دايموند كودز
+ })
+  }  
+ });
+
+
+
+
+
+
+
+
 client.login(process.env.BOT_TOKEN);
