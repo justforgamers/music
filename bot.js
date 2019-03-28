@@ -11,8 +11,8 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : EX Clan ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`JustForGamers`)
-client.user.setStatus("https://www.twitch.tv/justforgamerstv")
+client.user.setGame(argresult, "https://www.twitch.tv/justforgamerstv")
+client.user.setStatus("online")
 });
 
 
@@ -183,7 +183,12 @@ client.on("message", message => { //clear
 
 
 
-
+if(message.content.startsWith(prefix + "ping")) {
+ message.channel.send('Pong...').then((msg) => {
+      msg.edit(`\`\`\`javascript\nTime taken: ${msg.createdTimestamp - message.createdTimestamp} ms.\nDiscord API: ${Math.round(client.ping)} ms.\`\`\``);//حقوق دايموند كودز
+ })
+  }  
+ });
 
 
 
