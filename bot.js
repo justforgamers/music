@@ -273,5 +273,47 @@ reaction3.on("collect", r => {
 
 
 
+client.on('message', message => { // Toxic Codes
+    if (!message.content.startsWith(prefix)) return; // Toxic Codes
+  if(!message.channel.guild) return message.reply('** This command only for servers **') // Toxic Codes
+    let command = message.content.split(" ")[0]; // Toxic Codes
+    command = command.slice(prefix.length); // Toxic Codes
+    if (command === "kill"){ // Toxic Codes
+
+   var sabotage = message.mentions.users.first();
+   if(sabotage == message.author)return message.reply(`**الانتحار مو زين و الله**`);// Toxic Codes
+    if(sabotage === client.user) return message.reply(`** تبي تقتلني ؟ **`);
+  if (sabotage < 1) {
+    message.delete();
+    return message.channel.sendMessage('ضع شيئا للقتل، مثل ذكر مستخدم، أو استخدام رمز تعبيري');// Toxic Codes
+  }
+  if (!sabotage) return message.channel.send(`Please Mention A Member to Kill :warning:`)// Toxic Codes
+  message.channel.send("▄︻̷̿┻̿═━一 ${sabotage")// Toxic Codes
+  .then(msg =>{
+  msg.edit(`▄︻̷̿┻̿═━一 ${sabotage} :three:`);// Toxic Codes
+  setTimeout(function() {
+    msg.edit(`▄︻̷̿┻̿═━一 ${sabotage} :two:`);// Toxic Codes
+  }, 1000);
+  setTimeout(function() {
+    msg.edit(`▄︻̷̿┻̿═━一 ${sabotage} :one:`);// Toxic Codes
+  }, 2000);// Toxic Codes
+  setTimeout(function() {
+    msg.edit(`▄︻̷̿┻̿═━一 :boom:`);// Toxic Codes
+  }, 3000);// Toxic Codes
+  setTimeout(function() {
+    msg.edit(`▄︻̷̿┻̿═━一 :fire:`);// Toxic Codes
+  }, 4000);
+  setTimeout(function() {
+    msg.edit(`▄︻̷̿┻̿═━一 :skull:`);// Toxic Codes
+  }, 5000);
+  msg.delete(6000)
+  message.delete()// Toxic Codes
+  })
+  message.channel.send("**تم اخفاء الجريمة بنجاح 🕳 **").then(msg => msg.delete(10000));// Toxic Codes
+    }
+});// Toxic Codes
+
+
+
 
 client.login(process.env.BOT_TOKEN);
