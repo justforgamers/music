@@ -153,6 +153,13 @@ client.on("message", async message => {
 
             normal broadcast : ${prefix}bc
             broadcast for online only : ${prefix}bco
+            server info : ${prefix}server
+            user info : ${prefix}id
+            to know the ping : ${prefix}ping
+            to play rock paper scissors : ${prefix}rps
+            to clear the chat : ${prefix}clear
+            to repoart any kind of abuse : ${prefix}report
+            to kill someone : ${prefix}kill
             invite : ${prefix}invite
             The support server :https://discord.gg/Q6wWhBD
             **`);
