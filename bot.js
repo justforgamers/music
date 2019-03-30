@@ -463,5 +463,22 @@ client.on('message' , message => {
 
 
 
+client.on('guildMemberAdd', member => {
+    var embed = new Discord.RichEmbed()
+    .setThumbnail(member.user.avatarURL)
+  .addField("***thanks for joining us***" ,member.user.username )
+    .setDescription('***welcome to the server with all of our love we request from you to follow the discord TOS and our rules***')
+    .setColor('RANDOM')
+    .setImage('http://www.imgion.com/images/01/Welcome-buddy.jpg')
+var channel =member.guild.channels.find('name', 'welcomes-leaves')
+if (!channel) return;
+channel.send({embed : embed});
+});
+
+
+
+
+
+
 
 client.login(process.env.BOT_TOKEN);
